@@ -1,0 +1,39 @@
+Generate the XML file by running the SIFLes.exe and pass the required params
+
+https://doc.sitecore.com/developers/90/sitecore-experience-management/en/sitecore-powershell-public-nuget-feed-faq.html
+====
+---------------------------------------------------
+1. Register Repositories using below command
+---------------------------------------------------
+Register-PSRepository -Name SitecoreGallery -SourceLocation https://sitecore.myget.org/F/sc-powershell/api/v2
+===================================================
+
+
+===================================================
+2. Make these repositories as trusted using below command
+---------------------------------------------------
+Set-PSRepository -Name SitecoreGallery -InstallationPolicy Trusted
+===================================================
+
+
+===================================================
+3. Install SIF using below command
+---------------------------------------------------
+Below version we need for 9.0.2
+Install-Module -Name SitecoreInstallFramework -RequiredVersion 1.2.0 -Repository SitecoreGallery
+
+
+**** DO NOT INSTALL BELOW *****
+Below is the latest version, which we don't need - still we can install it if needed
+Install-Module -Name SitecoreInstallFramework -Repository SitecoreGallery
+
+In case you installed -- remove latest version 2.0.0
+Get-InstalledModule -Name "SitecoreinstallFramework" -RequiredVersion 2.0.0 | Uninstall-Module
+
+===================================================
+
+
+
+
+
+
